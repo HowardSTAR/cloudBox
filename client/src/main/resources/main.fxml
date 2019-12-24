@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox focusTraversable="true" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <HBox fx:id="authPanel">
+        <TextField fx:id="loginField" promptText="Логин" HBox.hgrow="ALWAYS" />
+        <PasswordField fx:id="passField" promptText="Пароль" HBox.hgrow="ALWAYS" />
+        <Button fx:id="Auth" onAction="#onAuthActionClick" text="Авторизоваться" HBox.hgrow="ALWAYS" />
+    </HBox>
+
+
+    <HBox VBox.vgrow="ALWAYS">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="Infinity" text="Локальное хранилище" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+            <ListView fx:id="localList" VBox.vgrow="ALWAYS" />
+            <Button fx:id="DeleteLocal" disable="true" maxWidth="Infinity" onAction="#DeleteLocalClick" text="Удалить файл" />
+            <HBox fx:id="actionPanel1" managed="false" visible="false" />
+            <Button fx:id="RefreshLocal" disable="true" maxWidth="Infinity" onAction="#RefreshLocalClick" text="Обновить" />
+            <Button fx:id="SendToCloud" disable="true" maxWidth="Infinity" onAction="#SendToCloudClick" text="Отправить файл -&gt;" />
+        </VBox>
+        <VBox HBox.hgrow="ALWAYS">
+            <HBox fx:id="actionPanel2" managed="false" />
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="Infinity" text="Облачное хранилище" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+            <ListView fx:id="cloudList" VBox.vgrow="ALWAYS" />
+            <Button fx:id="DownloadFile" disable="true" maxWidth="Infinity" onAction="#DownloadFileClick" text="&lt;- Скачать файл" />
+            <Button fx:id="DeleteRemote" disable="true" maxWidth="Infinity" onAction="#DeleteRemoteClick" text="Удалить файл" />
+            <Button fx:id="RefreshRemote" disable="true" maxWidth="Infinity" onAction="#RefreshRemoteClick" prefHeight="28.0" prefWidth="95.0" text="Обновить" />
+        </VBox>
+    </HBox>
+    <ProgressBar fx:id="operationProgress" managed="false" maxWidth="Infinity" prefHeight="1.0" prefWidth="496.0" visible="false">
+    </ProgressBar>
+</VBox>
